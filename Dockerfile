@@ -20,7 +20,7 @@ COPY . .
 
 # Compilar la biblioteca de C++ con Pybind11
 #RUN python setup.py build_ext --inplace
-RUN c++ -Ofast -Wall -shared -std=c++20 -fPIC $(python3.12 -m pybind11 --includes) app/tensor.cpp -o tensor$(python3.12-config --extension-suffix)
+RUN c++ -O2 -mavx -shared -std=c++20 -fPIC $(python3.12 -m pybind11 --includes) app/avx_sum.cpp -o avx_module$(python3.12-config --extension-suffix)
 
 # Exponer el puerto para Uvicorn
 EXPOSE 8000
