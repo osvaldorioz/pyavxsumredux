@@ -4,7 +4,7 @@ from pybind11.setup_helpers import Pybind11Extension, build_ext
 ext_modules = [
     Pybind11Extension(
         "avx_module",
-        ["avx_sum.cpp"],
+        ["app/avx_sum.cpp"],
         extra_compile_args=["-mavx"],  # Habilitar AVX
     ),
 ]
